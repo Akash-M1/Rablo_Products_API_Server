@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb+srv://akashm1:Akash123@cluster0.10pelru.mongodb.net/rablo_products_db");
+mongoose.connect(process.env.MONGOURL);
 
 const db = mongoose.connection;
 
