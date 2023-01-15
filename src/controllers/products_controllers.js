@@ -1,5 +1,6 @@
 const products = require('../models/products');
 
+//Controller for creating and pushing the product inside the database
 exports.createProduct = (req,res)=>{
     products.create(req.body,(err,data)=>{
         if(err){
@@ -18,7 +19,7 @@ exports.createProduct = (req,res)=>{
 }
 
 
-
+//Controller for getting all the products listed in the Database
 exports.getAllProducts = (req,res)=>{
     products.find().then((data)=>{
         res.status(200).json({
@@ -29,7 +30,7 @@ exports.getAllProducts = (req,res)=>{
 }
 
 
-
+//Controller for Updating the product with the given ID
 exports.updateProductByProductId = (req,res)=>{
     const updateableValue = Object.keys(req.body).slice(1).reduce((result, key) => {
         result[key] = req.body[key];
@@ -49,6 +50,7 @@ exports.updateProductByProductId = (req,res)=>{
     })
 }
 
+//Controller for Deleting the product with the given ID
 exports.deleteProductByProductId = (req,res)=>{
     products.deleteOne(req.body).then((data)=>{
         res.status(200).json({
@@ -64,6 +66,7 @@ exports.deleteProductByProductId = (req,res)=>{
     ])
 }
 
+//Controller for Fetching all the Featured products
 exports.getFeaturedProducts = (req,res)=>{
     products.find({"featured":true}).then((data)=>{
         res.status(200).json({
@@ -79,6 +82,7 @@ exports.getFeaturedProducts = (req,res)=>{
     })
 }
 
+//Controller for fetching the products after applying the certain price filter in database
 exports.getProductsAfterPriceFilter = (req,res)=>{
     products.find({"price":{"$lt":req.body.hcost}}).then((data)=>{
         res.status(200).json({
@@ -94,6 +98,7 @@ exports.getProductsAfterPriceFilter = (req,res)=>{
     })
 }
 
+//Controller for fetching the products after applying the certain rating filter in database
 exports.getProductsAfterRatingFilter = (req,res)=>{
     products.find({"rating":{"$gt":req.body.lrating}}).then((data)=>{
         res.status(200).json({
