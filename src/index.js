@@ -18,6 +18,8 @@ app.use(bodyParser.json());
 
 app.use('/',routes);
 
+console.log("Everything Happend successfully")
+
 app.listen(PORT,(err)=>{
     if(err){
         console.log("Error in listening");
