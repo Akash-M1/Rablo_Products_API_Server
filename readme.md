@@ -36,14 +36,11 @@ http://localhost:8000/products/filter/price
  Fetching the Products after applying rating filter (filter is passed through body itself
 http://localhost:8000/products/filter/rating
 
-
-# URLs After hosting the server on Railway
-
 ## All Delete Requests
  Deleting any product by parsing the prod_id through the body
 http://localhost:8000/products
 
-
+# URLs After hosting the server on Railway
 ## All Get Requests
  Get Request for fetching all the Products
 https://rabloproductsapiserver.up.railway.app/products
